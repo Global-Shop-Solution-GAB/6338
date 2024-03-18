@@ -1,0 +1,1052 @@
+Program.Sub.ScreenSU.Start
+Gui.FormProNestImport..Create
+Gui.FormProNestImport..Caption("ProNest Quote/Router Import [6338]")
+Gui.FormProNestImport..Size(15240,10500)
+Gui.FormProNestImport..MinX(0)
+Gui.FormProNestImport..MinY(0)
+Gui.FormProNestImport..Position(0,0)
+Gui.FormProNestImport..BackColor(-2147483633)
+Gui.FormProNestImport..MousePointer(0)
+Gui.FormProNestImport..Event(UnLoad,FormProNestImport_UnLoad)
+Gui.FormProNestImport.lblQuote.Create(Label,"Quote:",True,585,255,0,60,150,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.txtQuote.Create(TextBox,"",True,1215,300,0,675,60,True,0,"Arial",8,-2147483643,1)
+Gui.FormProNestImport.txtQuote.MaxLength(7)
+Gui.FormProNestImport.txtQuote.Event(LostFocus,txtQuote_LostFocus)
+Gui.FormProNestImport.cmdQuoteBrowser.Create(Button)
+Gui.FormProNestImport.cmdQuoteBrowser.Size(375,375)
+Gui.FormProNestImport.cmdQuoteBrowser.Position(1920,30)
+Gui.FormProNestImport.cmdQuoteBrowser.Caption("^")
+Gui.FormProNestImport.cmdQuoteBrowser.Event(Click,cmdQuoteBrowser_Click)
+Gui.FormProNestImport.cmdImportQuote.Create(Button)
+Gui.FormProNestImport.cmdImportQuote.Size(1545,375)
+Gui.FormProNestImport.cmdImportQuote.Position(13560,30)
+Gui.FormProNestImport.cmdImportQuote.Anchor(9)
+Gui.FormProNestImport.cmdImportQuote.Caption("Import New Quote")
+Gui.FormProNestImport.cmdImportQuote.Event(Click,cmdImportQuote_Click)
+Gui.FormProNestImport.frameQuote.Create(Frame)
+Gui.FormProNestImport.frameQuote.Size(15030,9720)
+Gui.FormProNestImport.frameQuote.Position(60,450)
+Gui.FormProNestImport.frameQuote.Caption("Quote Information")
+Gui.FormProNestImport.frameQuote.Anchor(15)
+Gui.FormProNestImport.frameQuote.Enabled(False)
+Gui.FormProNestImport.lblProNestQuote.Create(Label,"ProNest Quote Number: ",True,1935,255,0,75,330,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.lblProNestQuote.Parent("frameQuote")
+Gui.FormProNestImport.txtProNestQuote.Create(TextBox,"",True,1785,300,0,75,555,False,0,"Arial",8,-2147483643,1)
+Gui.FormProNestImport.txtProNestQuote.Parent("frameQuote")
+Gui.FormProNestImport.lblCustomerName.Create(Label,"Customer:",True,1935,255,0,2160,330,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.lblCustomerName.Parent("frameQuote")
+Gui.FormProNestImport.txtCustomerName.Create(TextBox,"",True,4380,300,0,3375,555,False,0,"Arial",8,-2147483643,1)
+Gui.FormProNestImport.txtCustomerName.Parent("frameQuote")
+Gui.FormProNestImport.txtCustomer.Create(TextBox,"",True,1155,300,0,2160,555,False,0,"Arial",8,-2147483643,1)
+Gui.FormProNestImport.txtCustomer.Parent("frameQuote")
+Gui.FormProNestImport.dtpQuoteDate.Create(DatePicker)
+Gui.FormProNestImport.dtpQuoteDate.Enabled(False)
+Gui.FormProNestImport.dtpQuoteDate.Size(1935,285)
+Gui.FormProNestImport.dtpQuoteDate.Position(8115,570)
+Gui.FormProNestImport.dtpQuoteDate.Parent("frameQuote")
+Gui.FormProNestImport.lblQuoteDate.Create(Label,"Quote Date:",True,1035,255,0,8115,330,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.lblQuoteDate.Parent("frameQuote")
+Gui.FormProNestImport.lblDueDate.Create(Label,"Due Date:",True,1035,255,0,10215,330,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.lblDueDate.Parent("frameQuote")
+Gui.FormProNestImport.dtpDueDate.Create(DatePicker)
+Gui.FormProNestImport.dtpDueDate.Enabled(False)
+Gui.FormProNestImport.dtpDueDate.Size(1935,285)
+Gui.FormProNestImport.dtpDueDate.Position(10215,570)
+Gui.FormProNestImport.dtpDueDate.Parent("frameQuote")
+Gui.FormProNestImport.lblCustomerPO.Create(Label,"Customer PO:",True,1200,255,0,12435,330,True,0,"Arial",8,-2147483633,0)
+Gui.FormProNestImport.lblCustomerPO.Parent("frameQuote")
+Gui.FormProNestImport.txtCustomerPO.Create(TextBox,"",True,2490,300,0,12435,555,False,0,"Arial",8,-2147483643,1)
+Gui.FormProNestImport.txtCustomerPO.Parent("frameQuote")
+Gui.FormProNestImport.gsgcQuoteLines.Create(GsGridControl)
+Gui.FormProNestImport.gsgcQuoteLines.Size(14850,8355)
+Gui.FormProNestImport.gsgcQuoteLines.Position(75,885)
+Gui.FormProNestImport.gsgcQuoteLines.Parent("frameQuote")
+Gui.FormProNestImport.gsgcQuoteLines.Event(RowCellClick,gsgcQuoteLines_RowCellClick)
+Gui.FormProNestImport.gsgcQuoteLines.Anchor(15)
+Gui.FormProNestImport.cmdCreateRouters.Create(Button)
+Gui.FormProNestImport.cmdCreateRouters.Size(1410,375)
+Gui.FormProNestImport.cmdCreateRouters.Position(13515,9270)
+Gui.FormProNestImport.cmdCreateRouters.Parent("frameQuote")
+Gui.FormProNestImport.cmdCreateRouters.Caption("Create Routers")
+Gui.FormProNestImport.cmdCreateRouters.Event(Click,cmdCreateRouters_Click)
+Gui.FormProNestImport.cmdOpenQuote.Create(Button)
+Gui.FormProNestImport.cmdOpenQuote.Size(1545,375)
+Gui.FormProNestImport.cmdOpenQuote.Position(12000,30)
+Gui.FormProNestImport.cmdOpenQuote.Anchor(9)
+Gui.FormProNestImport.cmdOpenQuote.Caption("Open in GSS")
+Gui.FormProNestImport.cmdOpenQuote.Event(Click,cmdOpenQuote_Click)
+Gui.FormProNestImport.cmdOpenQuote.Enabled(False)
+Gui.FormProNestImport.cmdClear.Create(Button)
+Gui.FormProNestImport.cmdClear.Size(855,375)
+Gui.FormProNestImport.cmdClear.Position(2310,30)
+Gui.FormProNestImport.cmdClear.Caption("Clear")
+Gui.FormProNestImport.cmdClear.Event(Click,cmdClear_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.sQuote.Declare(String, "")
+Program.External.Include.Library("6021.lib")
+Program.External.Include.Library("3500.lib")
+Program.External.Include.Library("400000.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'GCG_6338_ProNestRouterImport.g2u
+'Trey S
+'2021-06-02
+'For Metro Steel
+'Quote - 12739
+'Ticket - MET240-21220211545-0
+'This script is to create routers and parts for quote items coming in from GCG_6338_ProNestQuoteImport.g2u
+
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Caller.GSSVersion, <, "2019.1")
+	F.Intrinsic.Control.CallSub(SetIcon)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.Control.CallSub(LoadBlankQuoteLinesDataTable)
+F.Intrinsic.Control.CallSub(LoadQuoteLinesGrid)
+F.Intrinsic.Control.CallSub(LoadBlankRouterLinesDataTable)
+F.Intrinsic.Control.CallSub(LoadRouterLinesGrid)
+
+GUI.FormProNestImport..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.FormProNestImport_UnLoad.Start
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.Close("dtQuoteLines")
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.FormProNestImport_UnLoad.End
+
+Program.Sub.LoadBlankQuoteLinesDataTable.Start
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.Create("dtQuoteLines", True)
+F.Data.DataTable.AddColumn("dtQuoteLines", "CREATE_ROUTER", "Boolean", False)
+F.Data.DataTable.AddColumn("dtQuoteLines", "WON", "Boolean", False)
+F.Data.DataTable.AddColumn("dtQuoteLines", "LINE", "Long", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PART", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "DESCRIPTION", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "QUANTITY", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PRICE", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "COST", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "MATERIAL_MARK_UP", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PRODUCTION_MARK_UP", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "MATERIAL", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "THICKNESS", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "GRADE", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "PART_LENGTH", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PART_WIDTH", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "WEIGHT", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "RECTANGULAR_WEIGHT", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PART_AREA", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "RECTANGULAR_AREA", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "ALLOCATE_AREA", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "MACHINE_NAME", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "QUOTE_NUMBER", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "PRODUCTION_TIME", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "ALLOCATED_WEIGHT", "Float", 0)
+F.Data.DataTable.AddColumn("dtQuoteLines", "PRIME_CODE", "String", "")
+F.Data.DataTable.AddColumn("dtQuoteLines", "PRODUCTION_COST", "Float", 0)
+F.Data.DataTable.AddExpressionColumn("dtQuoteLines", "TOTAL_PRICE", "Float", "[QUANTITY] * [PRICE]")
+F.Data.DataTable.AddExpressionColumn("dtQuoteLines", "TOTAL_COST", "Float", "[QUANTITY] * [COST]")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadBlankQuoteLinesDataTable.End
+
+Program.Sub.LoadQuoteLinesGrid.Start
+F.Intrinsic.Control.Try
+
+GUI.FormProNestImport.gsgcQuoteLines.AddGridviewFromDatatable("gvQuoteLines", "dtQuoteLines")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetGridviewProperty("gvQuoteLines", "EnableAppearanceOddRow", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetGridviewProperty("gvQuoteLines", "OptionsViewColumnAutoWidth", False)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUOTE_NUMBER", "Visible", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUOTE_NUMBER", "AllowShowHide", False)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "CREATE_ROUTER", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WON", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "DESCRIPTION", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "GRADE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MACHINE_NAME", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRIME_CODE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "HeaderFontBold", True)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "CREATE_ROUTER", "Caption", "Create Router")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WON", "Caption", "Won")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "Caption", "Line")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "Caption", "Part")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "DESCRIPTION", "Caption", "Description")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "Caption", "Quantity")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "Caption", "Price")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "Caption", "Cost")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "Caption", "Material Mark Up")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "Caption", "Production Mark Up")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL", "Caption", "Material")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "Caption", "Thickness")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "GRADE", "Caption", "Grade")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "Caption", "Length")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "Caption", "Width")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "Caption", "Weight")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "Caption", "Rectangular Weight")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "Caption", "Area")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "Caption", "Rectangular Area")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "Caption", "Alloacte Area")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MACHINE_NAME", "Caption", "Machine")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "Caption", "Total Price")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "Caption", "Total Cost")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "Caption", "Production Time")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "Caption", "Allocated Weight")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRIME_CODE", "Caption", "Prime Code")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "Caption", "Production Cost")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "CREATE_ROUTER", "ReadOnly", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WON", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "DESCRIPTION", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "GRADE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MACHINE_NAME", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRIME_CODE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "ReadOnly", True)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "CREATE_ROUTER", "AllowEdit", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WON", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "DESCRIPTION", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "GRADE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MACHINE_NAME", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRIME_CODE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "AllowEdit", False)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "CREATE_ROUTER", "MinWidth", 50)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WON", "MinWidth", 50)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "MinWidth", 50)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "MinWidth", 120)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "DESCRIPTION", "MinWidth", 160)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "MinWidth", 120)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "MinWidth", 130)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL", "MinWidth", 100)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "GRADE", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MACHINE_NAME", "MinWidth", 60)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRIME_CODE", "MinWidth", 120)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "MinWidth", 70)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "QUANTITY", "DisplayCustomNumeric", "#,##0.##")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRICE", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "COST", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_PRICE", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "TOTAL_COST", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_COST", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "MATERIAL_MARK_UP", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_MARK_UP", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "THICKNESS", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_LENGTH", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_WIDTH", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "WEIGHT", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_WEIGHT", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART_AREA", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "RECTANGULAR_AREA", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATE_AREA", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PRODUCTION_TIME", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "ALLOCATED_WEIGHT", "DisplayCustomNumeric", "0.00")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "PART", "CellForeColor", "Blue")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvQuoteLines", "LINE", "SortOrder", "Ascending")
+
+GUI.FormProNestImport.gsgcQuoteLines.AddSummaryItem("gvQuoteLines", "TOTAL_PRICE", "TotalPrice", "SUM", "", "", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.AddSummaryItem("gvQuoteLines", "TOTAL_COST", "TotalPrice", "SUM", "", "", "$#,##0.00")
+
+GUI.FormProNestImport.gsgcQuoteLines.MainView("gvQuoteLines")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadQuoteLinesGrid.End
+
+Program.Sub.LoadBlankRouterLinesDataTable.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+F.Data.DataTable.CreateFromSQL("dtQuoteLines$dtRouterLines", "Con", "select CAST(ITEM_ID as INTEGER) LINE, PART, SECONDARY_PROCESS, UNIT_COST, EXTENDED_COST, FIXED_TIME, VARIABLE_TIME from GCG_6338_ROUTER_LINE where QUOTE = ''")
+F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+
+F.Data.DataTable.DeleteRow("dtQuoteLines$dtRouterLines")
+F.Data.DataTable.AcceptChanges("dtQuoteLines$dtRouterLines")
+
+F.Data.DataTable.AddRelation("dtQuoteLines", "LINE", "dtQuoteLines$dtRouterLines", "LINE")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadBlankRouterLinesDataTable.End
+
+Program.Sub.LoadRouterLinesGrid.Start
+F.Intrinsic.Control.Try
+
+F.Data.DataView.Create("dtQuoteLines$dtRouterLines", "dvRouterLines", 22)
+
+GUI.FormProNestImport.gsgcQuoteLines.AddGridviewFromDataview("gvRouterLines", "dtQuoteLines", "dvRouterLines")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetGridviewProperty("gvRouterLines", "EnableAppearanceOddRow", True)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "Visible", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "Visible", False)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "Caption", "Line")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "Caption", "Part")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "SECONDARY_PROCESS", "Caption", "Secondary Process")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "Caption", "Unit Cost")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "Caption", "Extended Cost")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "Caption", "Fixed Time")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "Caption", "Variable Time")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "SECONDARY_PROCESS", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "HeaderFontBold", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "HeaderFontBold", True)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "SECONDARY_PROCESS", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "ReadOnly", True)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "ReadOnly", True)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "SECONDARY_PROCESS", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "AllowEdit", False)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "AllowEdit", False)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "LINE", "MinWidth", 40)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "MinWidth", 100)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "SECONDARY_PROCESS", "MinWidth", 80)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "MinWidth", 70)
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "MinWidth", 70)
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "EXTENDED_COST", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "UNIT_COST", "DisplayCustomNumeric", "$#,##0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "FIXED_TIME", "DisplayCustomNumeric", "0.00")
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "VARIABLE_TIME", "DisplayCustomNumeric", "0.00")
+
+GUI.FormProNestImport.gsgcQuoteLines.SetColumnProperty("gvRouterLines", "PART", "CellForeColor", "Blue")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadRouterLinesGrid.End
+
+Program.Sub.cmdQuoteBrowser_Click.Start
+'bring up list of imported quotes
+
+F.Intrinsic.Control.Try
+
+V.Local.sColumns.Declare(String, "Quote*!*ProNest Quote*!*Customer*!*Quote Date*!*Customer PO")
+V.Local.sWidths.Declare(String, "80*!*80*!*200*!*90*!*100")
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.Split(V.Local.sColumns, "*!*", V.Local.sColumns)
+F.Intrinsic.String.Split(V.Local.sWidths, "*!*", V.Local.sWidths)
+
+F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+F.Intrinsic.UI.Browser("ProNest Quotes", "Con", "select RTRIM(A.GSS_QUOTE), RTRIM(A.QUOTE), RTRIM(C.NAME_CUSTOMER), A.QUOTE_DATE, RTRIM(B.CUSTOMER_PO) from GCG_6338_QUOTES A left join V_QUOTE_HEADER B on A.GSS_QUOTE = B.QUOTE_NO left join V_CUSTOMER_MASTER C on B.CUSTOMER = C.CUSTOMER", V.Local.sColumns, V.Local.sWidths, V.Local.sRet)
+F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+
+V.Local.sColumns.Redim(0, 0)
+V.Local.sWidths.Redim(0, 0)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsNotCancel)
+	F.Intrinsic.String.Split(V.Local.sRet, "*!*", V.Local.sRet)
+	GUI.FormProNestImport.txtQuote.Text(V.Local.sRet(0).Trim)
+	F.Intrinsic.Control.CallSub(txtQuote_LostFocus)
+	V.Local.sRet.Redim(0, 0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdQuoteBrowser_Click.End
+
+Program.Sub.txtQuote_LostFocus.Start
+F.Intrinsic.Control.Try
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sQuote.Declare(String)
+
+F.Intrinsic.Control.If(V.Global.sQuote.Trim, !=, V.Screen.FormProNestImport!txtQuote.Text.Trim)
+	F.Intrinsic.Control.If(V.Screen.FormProNestImport!txtQuote.Text.Trim, !=, "")
+		'check quote
+		F.Intrinsic.String.LPad(V.Screen.FormProNestImport!txtQuote.Text.Trim, "0", 7, V.Local.sQuote)
+		GUI.FormProNestImport.txtQuote.Text(V.Local.sQuote)
+		
+		F.Intrinsic.String.Build("select GSS_QUOTE from GCG_6338_QUOTES where GSS_QUOTE = '{0}'", V.Local.sQuote, V.Local.sSQL)
+		F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+		F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+		F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+		
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF.Not)
+			'load quote
+			F.Intrinsic.Control.CallSub(LoadQuote)
+			GUI.FormProNestImport.frameQuote.Enabled(True)
+			GUI.FormProNestImport.cmdOpenQuote.Enabled(True)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Invalid Quote Entered.")
+			F.Intrinsic.Control.CallSub(cmdClear_Click)
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.Else
+		'clear screen
+		F.Intrinsic.Control.CallSub(cmdClear_Click)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.txtQuote_LostFocus.End
+
+Program.Sub.LoadQuote.Start
+F.Intrinsic.Control.Try
+
+V.Local.sSQL.Declare(String)
+
+F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+
+V.Global.sQuote.Set(V.Screen.FormProNestImport!txtQuote.Text.Trim)
+
+F.Intrinsic.String.Build("select A.QUOTE, A.QUOTE_DATE, C.NAME_CUSTOMER, B.CUSTOMER_PO, B.DATE_DUE, B.CUSTOMER from GCG_6338_QUOTES A left join V_QUOTE_HEADER B on A.GSS_QUOTE = B.QUOTE_NO left join V_CUSTOMER_MASTER C on B.CUSTOMER = C.CUSTOMER where GSS_QUOTE = '{0}'", V.Global.sQuote, V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtQuoteTemp", "Con", V.Local.sSQL)
+
+'F.Intrinsic.String.Build("select A.WON, A.ITEM_ID LINE, RTRIM(B.PART) PART, RTRIM(B.DESCRIPTION) DESCRIPTION, B.QTY_QUOTED QUANTITY, B.PRICE, B.COST, A.MATERIAL_MU MATERIAL_MARK_UP, A.PRODUCTION_MU PRODUCTION_MARK_UP, RTRIM(A.MATERIAL) MATERIAL, A.THICKNESS, A.GRADE, A.PART_LENGTH, A.PART_WIDTH, A.WEIGHT, A.RECTANGULAR_WEIGHT, A.PART_AREA, A.RECTANGULAR_AREA, A.ALLOCATE_AREA, RTRIM(A.MACHINE_NAME) MACHINE_NAME, RTRIM(QUOTE_NUMBER) QUOTE_NUMBER, PRODUCTION_TIME, ALLOCATED_WEIGHT, RTRIM(PRIME_CODE) PRIME_CODE from GCG_6338_QUOTE_LINES A left join V_QUOTE_LINES B on A.ITEM_ID = CAST(LEFT(B.RECORD_NO, 3) as INTEGER) where QUOTE_NUMBER = '{0}' and QUOTE_NO = '{1}'", V.DataTable.dtQuoteTemp(0).QUOTE!FieldValTrim, V.Global.sQuote.Trim, V.Local.sSQL)
+F.Intrinsic.String.Build("select A.WON, A.ITEM_ID LINE, RTRIM(B.PART) PART, RTRIM(B.DESCRIPTION) DESCRIPTION, B.QTY_QUOTED QUANTITY, B.PRICE, A.UNIT_COST COST, A.MATERIAL_MU MATERIAL_MARK_UP, A.PRODUCTION_MU PRODUCTION_MARK_UP, RTRIM(A.MATERIAL) MATERIAL, A.THICKNESS, A.GRADE, A.PART_LENGTH, A.PART_WIDTH, A.WEIGHT, A.RECTANGULAR_WEIGHT, A.PART_AREA, A.RECTANGULAR_AREA, A.ALLOCATE_AREA, RTRIM(A.MACHINE_NAME) MACHINE_NAME, RTRIM(QUOTE_NUMBER) QUOTE_NUMBER, PRODUCTION_TIME, ALLOCATED_WEIGHT, RTRIM(PRIME_CODE) PRIME_CODE, PRODUCTION_COST from GCG_6338_QUOTE_LINES A left join V_QUOTE_LINES B on SUBSTRING('000' + RTRIM(A.ITEM_ID) + '0', 1 + LENGTH(A.ITEM_ID), 4) = B.RECORD_NO where QUOTE_NUMBER = '{0}' and QUOTE_NO = '{1}'", V.DataTable.dtQuoteTemp(0).QUOTE!FieldValTrim, V.Global.sQuote.Trim, V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtQuoteLinesTemp", "Con", V.Local.sSQL)
+
+F.Intrinsic.String.Build("select CAST(ITEM_ID as INTEGER) LINE, RTRIM(PART) PART, RTRIM(SECONDARY_PROCESS) SECONDARY_PROCESS, UNIT_COST, EXTENDED_COST, FIXED_TIME, VARIABLE_TIME from GCG_6338_ROUTER_LINE where QUOTE = '{0}'", V.DataTable.dtQuoteTemp(0).QUOTE!FieldValTrim, V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtRouterLinesTemp", "Con", V.Local.sSQL)
+F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+
+GUI.FormProNestImport.txtProNestQuote.Text(V.DataTable.dtQuoteTemp(0).QUOTE!FieldValTrim)
+GUI.FormProNestImport.txtCustomer.Text(V.DataTable.dtQuoteTemp(0).CUSTOMER!FieldValTrim)
+GUI.FormProNestImport.txtCustomerName.Text(V.DataTable.dtQuoteTemp(0).NAME_CUSTOMER!FieldValTrim)
+GUI.FormProNestImport.txtCustomerPO.Text(V.DataTable.dtQuoteTemp(0).CUSTOMER_PO!FieldValTrim)
+GUI.FormProNestImport.dtpDueDate.Value(V.DataTable.dtQuoteTemp(0).DATE_DUE!FieldVal)
+GUI.FormProNestImport.dtpQuoteDate.Value(V.DataTable.dtQuoteTemp(0).QUOTE_DATE!FieldVal)
+
+F.Data.DataTable.Close("dtQuoteTemp")
+
+F.Data.DataTable.DeleteRow("dtQuoteLines")
+F.Data.DataTable.Merge("dtQuoteLinesTemp", "dtQuoteLines", False, 2)
+F.Data.DataTable.AcceptChanges("dtQuoteLines")
+F.Data.DataTable.Close("dtQuoteLinesTemp")
+
+F.Data.DataTable.DeleteRow("dtQuoteLines$dtRouterLines")
+F.Data.DataTable.Merge("dtRouterLinesTemp", "dtQuoteLines$dtRouterLines", False, 2)
+F.Data.DataTable.AcceptChanges("dtQuoteLines$dtRouterLines")
+F.Data.DataTable.Close("dtRouterLinesTemp")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadQuote.End
+
+Program.Sub.cmdImportQuote_Click.Start
+F.Intrinsic.Control.Try
+
+V.Local.sPath.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.sMessage.Declare(String)
+V.Local.sQuote.Declare(String)
+
+GUI.FormProNestImport..Enabled(False)
+F.Intrinsic.String.Build("{0}\GCG_6338_ProNestQuoteImport.g2u", V.Ambient.ScriptPath, V.Local.sPath)
+F.Global.General.CallSyncGAS(V.Local.sPath)
+GUI.FormProNestImport..Enabled(True)
+GUI.FormProNestImport..SetFocus
+
+F.Global.Registry.ReadValue(V.Caller.User, V.Caller.CompanyCode, "GCG_6338_ProNestQuoteImport.g2u", 6338, 0, 5, "", V.Local.sQuote)
+F.Intrinsic.Control.If(V.Local.sQuote.Trim, !=, "")
+	F.Intrinsic.String.Build("Load the imported quote [{0}] now?", V.Local.sQuote, V.Local.sMessage)
+	F.Intrinsic.UI.Msgbox(V.Local.sMessage, "Load Quote", 4, V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet, =, V.Ambient.MsgBoxYes)
+		GUI.FormProNestImport.txtQuote.Text(V.Local.sQuote)
+		F.Intrinsic.Control.CallSub(txtQuote_LostFocus)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdImportQuote_Click.End
+
+Program.Sub.SetIcon.Start
+F.Intrinsic.Control.Try
+
+V.Local.sForm.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sIcon.Declare(String)
+V.Local.iCounter.Declare(Long)
+
+F.Intrinsic.String.Build("{0}\ART\gss2.ico",V.Caller.GlobalDir,v.Local.sIcon)
+F.Intrinsic.File.Exists(V.Local.sIcon, V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists.Not)
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+	F.Intrinsic.File.Exists(V.Local.sIcon, V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists.Not)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.GetFormList(V.Local.sForm)
+F.Intrinsic.String.Split(V.Local.sForm, "*!*", V.Local.sForm)
+
+F.Intrinsic.Control.For(V.Local.iCounter, 0, V.Local.sForm.UBound, 1)
+	Gui.[V.Local.sForm(V.Local.iCounter)]..Icon(V.Local.sIcon)
+F.Intrinsic.Control.Next(V.Local.iCounter)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.SetIcon.End
+
+Program.Sub.cmdOpenQuote_Click.Start
+F.Intrinsic.Control.Try
+
+V.Local.sParameters.Declare(String)
+
+F.Intrinsic.String.ConcatCallWrapperArgs(V.Global.sQuote, "O", V.Local.sParameters)
+GUI.FormProNestImport..Enabled(False)
+F.Global.General.CallWrapperSync(251000, V.Local.sParameters)
+GUI.FormProNestImport..Enabled(True)
+GUI.FormProNestImport..SetFocus
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOpenQuote_Click.End
+
+Program.Sub.cmdCreateRouters_Click.Start
+F.Intrinsic.Control.Try
+
+V.Local.iCounter.Declare(Long)
+V.Local.sMessage.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.bCreate.Declare(Boolean, True)
+V.Local.sParameters.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+'create routers
+F.Data.DataView.Create("dtQuoteLines", "dvQuoteLines", 22, "[CREATE_ROUTER]", "")
+F.Intrinsic.Control.If(V.DataView.dtQuoteLines!dvQuoteLines.RowCount, >, 0)
+	GUI.FormProNestImport..Enabled(False)
+	F.Intrinsic.UI.InvokeWaitDialog("Uploading Parts and Routers...", "Router Import")
+	F.Intrinsic.UI.Sleep(1)
+	
+	F.Intrinsic.Control.For(V.Local.iCounter, 0, V.DataView.dtQuoteLines!dvQuoteLines.RowCount--, 1)
+		V.Local.sPart.Set(V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PART!FieldValTrim)
+		V.Local.sPart.Set(V.Local.sPart.UCase)
+		F.Intrinsic.String.Build("select PART from V_INVENTORY_MSTR where PART = '{0}'", V.Local.sPart.Left20, V.Local.sSQL)
+		F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+		F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+		F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+		
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF.Not)
+			F.Intrinsic.String.Build("Router [{0}] has already been created, update it?", V.Local.sPart.Left20, V.Local.sMessage)
+			F.Intrinsic.UI.Msgbox(V.Local.sMessage, "Warning", 4, V.Local.iRet)
+			F.Intrinsic.Control.If(V.Local.iRet, =, V.Ambient.MsgBoxYes)
+				'delete part
+				F.Data.DataTable.AddRow("3500", "CompanyCode", V.Caller.CompanyCode, "Mode", "D", "Switch2", "N", "Part", V.Local.sPart.Left20)
+				F.Intrinsic.Control.CallSub(3500Sync)
+				
+				'delete router
+				F.Intrinsic.Control.CallSub(DeleteRouter, "Router", V.Local.sPart.Left20)
+				V.Local.bCreate.Set(True)
+			F.Intrinsic.Control.Else
+				V.Local.bCreate.Set(False)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			V.Local.bCreate.Set(True)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.bCreate)
+			F.Intrinsic.Control.CallSub(CreateRouter, "Part", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PART!FieldValTrim, "COST", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).COST!FieldValFloat, "PRICE", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PRICE!FieldValFloat, "MATERIAL", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PRIME_CODE!FieldValTrim, "AREA", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PART_AREA!FieldValFloat, "MACHINE", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).MACHINE_NAME!FieldValTrim, "Line", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).LINE!FieldValLong, "WEIGHT", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).ALLOCATED_WEIGHT!FieldValFloat, "RUN_TIME", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PRODUCTION_TIME!FieldValFloat, "GRADE", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).GRADE!FieldValTrim, "THICKNESS", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).THICKNESS!FieldValFloat, "LENGTH", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PART_LENGTH!FieldValFloat, "WIDTH", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PART_WIDTH!FieldValFloat, "PRODUCTION_COST", V.DataView.dtQuoteLines!dvQuoteLines(V.Local.iCounter).PRODUCTION_COST!FieldValFloat)
+			
+			F.Data.DataView.SetValue("dtQuoteLines", "dvQuoteLines", V.Local.iCounter, "WON", True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCounter)
+	
+	'save won
+	F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+	F.Data.DataTable.SaveToDB("dtQuoteLines", "Con", "GCG_6338_QUOTE_LINES", "QUOTE_NUMBER*!*LINE", 256, "QUOTE_NUMBER@!@QUOTE_NUMBER*!*LINE@!@ITEM_ID*!*WON@!@WON")
+	F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+	
+	F.Data.DataTable.SetValue("dtQuoteLines", -1, "CREATE_ROUTER", False)
+	
+	F.Intrinsic.UI.CloseWaitDialog
+	GUI.FormProNestImport..Enabled(True)
+	GUI.FormProNestImport..SetFocus
+	
+	F.Intrinsic.UI.Msgbox("Router creation process complete.")
+F.Intrinsic.Control.EndIf
+F.Data.DataView.Close("dtQuoteLines", "dvQuoteLines")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCreateRouters_Click.End
+
+Program.Sub.CreateRouter.Start
+'pass part, cost, material, area, machine, price, Line, weight, run_time, grade, thickness, width, length
+
+F.Intrinsic.Control.Try
+
+V.Local.sFilter.Declare(String)
+V.Local.sSequence.Declare(String)
+V.Local.iSequence.Declare(Long, 0)
+V.Local.iCounter.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sMachine.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sDescription.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.fWeight.Declare(Float, 0)
+V.Local.fRate.Declare(Float, 0)
+V.Local.fRuntime.Declare(Float)
+
+V.Local.sPart.Set(V.Args.Part.Left20)
+V.Local.sPart.Set(V.Local.sPart.UCase)
+
+'build description
+F.Intrinsic.String.Split(V.Args.Grade, " ", V.Local.sTemp)
+V.Local.sTemp.RedimPreserve(0, 1)
+F.Intrinsic.String.Build("{0} {1} {2}X{3}", V.Local.sTemp(0), V.Args.Thickness, V.Args.Width, V.Args.Length, V.Local.sDescription)
+V.Local.sTemp.Redim(0, 0)
+
+'create part
+F.Global.Inventory.CreatePart(V.Local.sPart, "EA", V.Local.sDescription, "", "VP", "F", "", "", V.Args.Price, "UPLOADED")
+
+F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+
+'for some reason source isn't updating, fix that too
+
+'update weight
+F.Intrinsic.String.Build("update INVENTORY_MST2 set LBS = {0}, CODE_SOURCE = 'F' where PART = '{1}'", V.Args.Weight, V.Local.sPart.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!Con.Execute(V.Local.sSQL)
+
+'look up sheet weight, description, alt cost
+F.Intrinsic.String.Build("select LBS, RTRIM(DESCRIPTION), AMT_ALT_COST from V_INVENTORY_ALL where PART = '{0}'", V.Args.Material.UCase, V.Local.sSQL)
+F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet, "*!*", V.Local.sRet)
+V.Local.sRet.RedimPreserve(0, 2)
+V.Local.fWeight.Set(V.Local.sRet(0).Float)
+F.Intrinsic.Control.If(V.Local.fWeight, !=, 0)
+	F.Intrinsic.Math.Div(V.Args.Weight, V.Local.fWeight, V.Local.fWeight)
+F.Intrinsic.Control.EndIf
+
+'create router
+'add material line
+F.Intrinsic.Math.Add(V.Local.iSequence, 100, V.Local.iSequence)
+F.Intrinsic.String.LPad(V.Local.iSequence, "0", 6, V.Local.sSequence)
+F.Data.DataTable.AddRow("6021", "RouterNum", V.Local.sPart, "RouterDesc", V.Local.sDescription, "Seq", V.Local.sSequence, "LineType", "M", "PartNum", V.Args.Material.UCase, "RunTimeMatlQty", V.Local.fWeight, "PartStepDesc", V.Local.sRet(1).Trim, "RateUC", V.Local.sRet(2).Float, "UM", "EA", "PL", "VP", "Qty1", 1.0)
+V.Local.sRet.Redim(0, 0)
+
+'need to check 4980 workcenter cross reference
+F.Data.Dictionary.CreateFromSQL("dictWorkcenters", "Con", "select RTRIM(XREF), RTRIM(WC) from GCG_4980_WCXREF")
+F.Data.Dictionary.SetDefaultReturn("dictWorkcenters", "")
+
+'add cutting step
+F.Intrinsic.Math.Add(V.Local.iSequence, 100, V.Local.iSequence)
+F.Intrinsic.String.LPad(V.Local.iSequence, "0", 6, V.Local.sSequence)
+
+F.Intrinsic.Control.If(V.Dictionary.dictWorkcenters![V.Args.Machine.Trim], !=, "")
+	V.Local.sMachine.Set(V.Dictionary.dictWorkcenters![V.Args.Machine.Trim])
+F.Intrinsic.Control.Else
+	V.Local.sMachine.Set(V.Args.Machine.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select RTRIM(WC_NAME) from V_WORKCENTERS where MACHINE = '{0}'", V.Local.sMachine, V.Local.sSQL)
+F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+
+'maybe check option for this
+F.Intrinsic.Control.If(V.Args.Run_Time, !=, 0)
+	F.Intrinsic.Math.Div(1, V.Args.Run_Time, V.Local.fRuntime)
+F.Intrinsic.Control.Else
+	V.Local.fRuntime.Set(0)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.AddRow("6021", "RouterNum", V.Local.sPart, "RouterDesc", V.Local.sDescription, "Seq", V.Local.sSequence, "LineType", "L", "WC", V.Local.sMachine, "RunTimeMatlQty", V.Local.fRuntime, "RateUC", V.Args.Production_Cost, "PL", "VP", "PartStepDesc", V.Local.sRet, "Qty1", 1.0)
+
+'add any secondary processes
+F.Intrinsic.String.Build("[LINE] = {0}", V.Args.Line, V.Local.sFilter)
+
+F.Data.DataView.Create("dtQuoteLines$dtRouterLines", "dvRouterLinesFiltered", 22, V.Local.sFilter, "Line")
+
+F.Intrinsic.Control.For(V.Local.iCounter, 0, V.DataView.dtQuoteLines$dtRouterLines!dvRouterLinesFiltered.RowCount--, 1)
+	F.Intrinsic.Math.Add(V.Local.iSequence, 100, V.Local.iSequence)
+	F.Intrinsic.String.LPad(V.Local.iSequence, "0", 6, V.Local.sSequence)
+	
+	V.Local.sMachine.Set(V.DataView.dtQuoteLines$dtRouterLines!dvRouterLinesFiltered(V.Local.iCounter).SECONDARY_PROCESS!FieldValTrim)
+	V.Local.sMachine.Set(V.Local.sMachine.Left4)
+	F.Intrinsic.Control.If(V.Dictionary.dictWorkcenters![V.Local.sMachine], !=, "")
+		V.Local.sMachine.Set(V.Dictionary.dictWorkcenters![V.Local.sMachine])
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("select RTRIM(WC_NAME), STANDARD_COST from V_WORKCENTERS where MACHINE = '{0}'", V.Local.sMachine, V.Local.sSQL)
+	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet, "*!*", V.Local.sRet)
+	V.Local.sRet.RedimPreserve(0, 1)
+	
+	F.Intrinsic.Control.If(V.DataView.dtQuoteLines$dtRouterLines!dvRouterLinesFiltered(V.Local.iCounter).VARIABLE_TIME!FieldValFloat, !=, 0)
+		F.Intrinsic.Math.Div(1, V.DataView.dtQuoteLines$dtRouterLines!dvRouterLinesFiltered(V.Local.iCounter).VARIABLE_TIME!FieldValFloat, V.Local.fRuntime)
+	F.Intrinsic.Control.Else
+		V.Local.fRuntime.Set(0)
+	F.Intrinsic.Control.EndIf
+
+	F.Data.DataTable.AddRow("6021", "RouterNum", V.Local.sPart, "RouterDesc", V.Args.Part, "Seq", V.Local.sSequence, "LineType", "L", "WC", V.Local.sMachine, "RunTimeMatlQty", V.Local.fRuntime, "RateUC", V.Local.sRet(1).Float, "PL", "VP", "PartStepDesc", V.Local.sRet(0).Trim, "Qty1", 1.0)
+F.Intrinsic.Control.Next(V.Local.iCounter)
+F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+
+F.Data.DataView.Close("dtQuoteLines$dtRouterLines", "dvRouterLinesFiltered")
+F.Data.Dictionary.Close("dictWorkcenters")
+
+'run the router upload
+F.Intrinsic.Control.CallSub(6021Sync)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.CreateRouter.End
+
+Program.Sub.Connection.Start
+'open or close connection if necessary, keep track of all connections
+
+F.Intrinsic.Control.Try
+
+V.Static.iConnections.Declare(Long)
+
+F.Intrinsic.Control.If(V.Args.Connect)
+	F.Intrinsic.Control.If(V.Static.iConnections, =, 0)
+		F.ODBC.Connection!Con.OpenCompanyConnection(100)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Math.Add(V.Static.iConnections, 1, V.Static.iConnections)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Static.iConnections, >, 0)
+		F.Intrinsic.Math.Sub(V.Static.iConnections, 1, V.Static.iConnections)
+		
+		F.Intrinsic.Control.If(V.Static.iConnections, =, 0)
+			F.ODBC.Connection!Con.Close
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.Connection.End
+
+Program.Sub.cmdClear_Click.Start
+F.Intrinsic.Control.Try
+
+V.Global.sQuote.Set("")
+
+GUI.FormProNestImport.txtQuote.Text("")
+GUI.FormProNestImport.txtProNestQuote.Text("")
+GUI.FormProNestImport.txtCustomerPO.Text("")
+GUI.FormProNestImport.txtCustomerName.Text("")
+GUI.FormProNestImport.txtCustomer.Text("")
+GUI.FormProNestImport.dtpDueDate.Value(V.Ambient.MinDate)
+GUI.FormProNestImport.dtpQuoteDate.Value(V.Ambient.MinDate)
+
+F.Data.DataTable.DeleteRow("dtQuoteLines")
+F.Data.DataTable.DeleteRow("dtQuoteLines$dtRouterLines")
+
+GUI.FormProNestImport.frameQuote.Enabled(False)
+GUI.FormProNestImport.cmdOpenQuote.Enabled(False)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.DeleteRouter.Start
+'pass ROUTER
+
+F.Intrinsic.Control.Try
+
+V.Local.sSQL.Declare(String)
+
+F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+F.Intrinsic.String.Build("delete from ROUTER_LINE where ROUTER = '{0}';" , V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_HEADER where ROUTER = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_SUPP_LINE where RTR_NUM = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_SUPP_HDR where RTR_NUM = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_XREF where ROUTER = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_DESC where ROUTER = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from ROUTER_OP_CODES where ROUTER = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Build("delete from RTR_SEQ_COMMENTS where RTR_NUMBER = '{0}';", V.Args.Router.PSQLFriendly, V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.DeleteRouter.End
+
+Program.Sub.CheckDirectories.Start
+'check if the given import directories exist
+'create them if they don't
+'pass directories delimited with *!*
+
+F.Intrinsic.Control.Try
+
+V.Local.sDirectories.Declare(String)
+V.Local.sPath.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.iCounter.Declare(Long)
+
+V.Local.sDirectories.Set(V.Args.Directories)
+F.Intrinsic.String.Split(V.Local.sDirectories, "*!*", V.Local.sDirectories)
+
+F.Intrinsic.Control.For(V.Local.iCounter, 0, V.Local.sDirectories.UBound, 1)
+	V.Local.sPath.Set(V.Local.sDirectories(V.Local.iCounter))
+	F.Intrinsic.File.DirExists(V.Local.sPath, V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists.Not)
+		F.Intrinsic.File.CreateDir(V.Local.sPath)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCounter)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.CheckDirectories.End
+
+Program.Sub.AddLogFile.Start
+'pass a project #, and a message
+'date and time will be automatically added
+'pass PROJECT (Folder)
+'pass type (subfolder)
+'MESSAGE (what to log)
+
+F.Intrinsic.Control.Try
+
+V.Local.sProject.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sPath.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sContents.Declare(String)
+V.Local.sName.Declare(String)
+
+F.Intrinsic.File.MakeFilenameFriendly(V.Args.Project, V.Local.sProject)
+F.Intrinsic.String.Build("{0}\Custom\{1}\{2}\Log\{3}\", V.Caller.GlobalDir, V.Local.sProject, V.Caller.CompanyCode, V.Args.Type, V.Local.sPath)
+F.Intrinsic.Control.CallSub(CheckDirectories, "DIRECTORIES", V.Local.sPath)
+
+F.Intrinsic.String.StripCharacters(V.Ambient.Now, V.Local.sName)
+
+F.Intrinsic.String.Build("{0}\{1}_Log.txt", V.Local.sPath, V.Local.sName, V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sFile, V.Args.Message.Trim)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.AddLogFile.End
+
+Program.Sub.ErrorMessage.Start
+'basic error message for replacing catch block
+'this is really just for when printing the message and ending program
+'pass error number, error description, current subroutine
+'optional callback sub, this will be called before ending
+'optional unattended parameters, those subs may not exist if not using them but won't be called
+
+F.Intrinsic.Control.Try
+
+V.Local.sError.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sCallback.Declare(String)
+V.Static.bError.Declare(Boolean, False)
+V.Local.sDoubleNewLine.Declare(String)
+
+'make sure we aren't in an error loop
+F.Intrinsic.Control.If(V.Static.bError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+V.Static.bError.Set(True)
+
+F.Intrinsic.String.Build("{6}{1}{1}Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}", V.Caller.ScriptFile, V.Ambient.Newline, V.Args.Subroutine, V.Args.ErrorNumber, V.Args.ErrorDescription, V.Ambient.GABVersion, V.Ambient.Now, V.Local.sError)
+
+F.Intrinsic.Variable.ArgExists("UNATTENDED", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	F.Intrinsic.Control.If(V.Args.UNATTENDED)
+		F.Intrinsic.Control.CallSub(UnattendedErrorMessage, "MESSAGE", V.Local.sError, "PROJECT", V.Args.PROJECT, "PROJECTTITLE", V.Args.PROJECTTITLE, "TASK", V.Args.Task)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.ArgExists("WRITE_LOG_FILE", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	F.Intrinsic.Control.If(V.Args.WRITE_LOG_FILE)
+		F.Intrinsic.String.Build("{0}{0}", V.Ambient.NewLine, V.Local.sDoubleNewLine)
+		F.Intrinsic.String.Replace(V.Local.sError, V.Local.sDoubleNewLine, V.Ambient.NewLine, V.Local.sError)
+		
+		F.Intrinsic.String.Build("Time: {0}{1}User: {2}{1}Windows User: {3}{1}Machine: {4}{1}PID: {5}{1}Terminal: {6}{1}Caller: {7}{1}Synchronous: {8}{1}Thread ID: {9}{1}Pervasive Client: {10}{1}GAB Version: {11}{1}GSS Version: {12}{1}Error: {13}{1}Error Description: {14}{1}Script: {15}{1}Subroutine: {16}", V.Ambient.Now, V.Ambient.NewLine, V.Caller.User, V.System.UserName, V.System.ComputerName, V.Ambient.PID, V.Caller.Terminal, V.Caller.Caller, V.Caller.Sync,  V.Ambient.ThreadID, V.Ambient.PervasiveClientVersion, V.Ambient.GABVersion, V.Caller.GSSVersion, V.Args.ErrorNumber, V.Args.ErrorDescription, V.Caller.ScriptFile, V.Args.Subroutine, V.Local.sError)
+		
+		F.Intrinsic.Control.CallSub(AddLogFile, "PROJECT", V.Args.Project, "TYPE", V.Args.Task, "MESSAGE", V.Local.sError)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.ArgExists("Callback", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	V.Local.sCallback.Set(V.Args.Callback.Trim)
+	F.Intrinsic.Control.CallSub(V.Local.sCallback)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.ErrorMessage.End
+
+Program.Sub.gsgcQuoteLines_RowCellClick.Start
+F.Intrinsic.Control.Try
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRouter.Declare(String)
+
+F.Intrinsic.Control.If(V.Args.Column, =, "PART")
+	V.Local.sRouter.Set(V.DataTable.dtQuoteLines(V.Args.RowIndex).PART!FieldValTrim)
+	V.Local.sRouter.Set(V.Local.sRouter.UCase)
+	F.Intrinsic.String.Build("select RTRIM(ROUTER) from V_ROUTER_HEADER where ROUTER = '{0}'", V.Local.sRouter.PSQLFriendly, V.Local.sSQL)
+	F.Intrinsic.Control.CallSub(Connection, "Connect", True)
+	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+	F.Intrinsic.Control.CallSub(Connection, "Connect", False)
+	
+	F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+		F.Intrinsic.UI.Msgbox("This router does not exist.")
+	F.Intrinsic.Control.Else
+		GUI.FormProNestImport..Enabled(False)
+		F.Data.DataTable.AddRow("400000", "Mode", "O", "ROUTER", V.Local.sRouter)
+		F.Intrinsic.Control.CallSub(400000Sync)
+		GUI.FormProNestImport..Enabled(True)
+		GUI.FormProNestImport..SetFocus
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "WRITE_LOG_FILE", True, "Project", "6338", "Task", "GCG_6338_ProNestRouterImport")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcQuoteLines_RowCellClick.End
